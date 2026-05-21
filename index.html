@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Save Kolby Kolibas of C0D3AI to your contacts, book time, or share the interactive contact card."
+    />
+    <meta name="theme-color" content="#050505" />
+    <title>Kolby Kolibas | C0D3AI Contact Card</title>
+    <link rel="preconnect" href="https://api.qrserver.com" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="contact-card" aria-label="Kolby Kolibas contact card">
+        <div class="motion-sheen" aria-hidden="true"></div>
+
+        <div class="portrait-panel">
+          <div class="terminal-tag">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span>LIVE_CONTACT_NODE</span>
+          </div>
+          <img
+            class="portrait"
+            src="/assets/kolby-kolibas.png"
+            alt="Kolby Kolibas"
+          />
+          <div class="portrait-readout" aria-hidden="true">
+            <span>AUTH_KOLBY</span>
+            <strong>99.2%</strong>
+          </div>
+        </div>
+
+        <div class="content-panel">
+          <header class="card-nav" aria-label="C0D3AI card status">
+            <img
+              class="logo"
+              src="/assets/c0d3ai-logo-white.png"
+              alt="C0D3AI"
+            />
+            <span class="nav-pill">
+              <span class="status-dot" aria-hidden="true"></span>
+              READY
+            </span>
+          </header>
+
+          <div class="identity">
+            <p class="meta-label">EST. 2024 // NEURAL ARCHITECTURE</p>
+            <h1>Kolby<br /><span>Kolibas</span></h1>
+            <p class="title">Chief Algorithm Alchemist &amp; AI Strategist</p>
+            <p class="company">C0D3AI_CONSULTING_SYSTEMS</p>
+          </div>
+
+          <div class="system-strip" aria-label="System status metrics">
+            <div>
+              <span>Protocol</span>
+              <strong>SECURE_AES_256</strong>
+            </div>
+            <div>
+              <span>Core</span>
+              <strong>C0D3_X_09</strong>
+            </div>
+            <div>
+              <span>Availability</span>
+              <strong>READY</strong>
+            </div>
+          </div>
+
+          <div class="contact-list" aria-label="Contact information">
+            <a href="tel:+14809018393">
+              <span>TEL</span>
+              <strong>480-901-8393</strong>
+            </a>
+            <a href="mailto:kolby@c0de3ai.com">
+              <span>EMAIL</span>
+              <strong>kolby@c0de3ai.com</strong>
+            </a>
+          </div>
+
+          <div class="share-grid">
+            <button
+              id="scanToggle"
+              class="qr-wrap"
+              type="button"
+              aria-label="Pulse QR code"
+            >
+              <img id="qrCode" alt="QR code for Kolby Kolibas vCard" />
+            </button>
+            <div class="actions">
+              <a id="bookTime" class="action-button booking" target="_blank" rel="noreferrer">
+                Book Time
+              </a>
+              <button id="saveContact" type="button">Save vCard</button>
+              <button id="shareContact" class="secondary" type="button">
+                Share Card
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="/script.js"></script>
+  </body>
+</html>
