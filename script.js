@@ -7,6 +7,7 @@ const contact = {
   phone: "+14809018393",
   phoneDisplay: "480-901-8393",
   email: "kolby@c0de3ai.com",
+  website: "https://www.cod3ai.com",
   bookingUrl: "",
 };
 
@@ -16,7 +17,10 @@ const bookingRequestUrl = `mailto:${contact.email}?subject=${encodeURIComponent(
   `Hi ${contact.firstName},\n\nI'd like to book time on your calendar.\n\nBest,\n`,
 )}`;
 
-const contactUrlLines = contact.bookingUrl ? [`URL:${contact.bookingUrl}`] : [];
+const contactUrlLines = [
+  `URL:${contact.website}`,
+  ...(contact.bookingUrl ? [`URL:${contact.bookingUrl}`] : []),
+];
 
 const vcard = [
   "BEGIN:VCARD",
@@ -77,8 +81,13 @@ shareContact.addEventListener("click", async () => {
     return;
   }
 
-  await navigator.clipboard.writeText(window.location.href);
-  shareContact.textContent = "Link Copied";
+  try {
+    await navigator.clipboard.writeText(window.location.href);
+    shareContact.textContent = "Link Copied";
+  } catch {
+    shareContact.textContent = "Copy Blocked";
+  }
+
   shareContact.classList.remove("pulse-confirm");
   requestAnimationFrame(() => shareContact.classList.add("pulse-confirm"));
   window.setTimeout(() => {
