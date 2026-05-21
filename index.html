@@ -15,7 +15,7 @@
       type="module"
       src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"
     ></script>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=duck-reveal-1" />
   </head>
   <body>
     <main class="page-shell">
@@ -25,7 +25,7 @@
         <div class="portrait-panel">
           <div class="terminal-tag">
             <span class="status-dot" aria-hidden="true"></span>
-            <span>LIVE_3D_NODE</span>
+            <span class="portrait-status">IDENTITY_SCAN</span>
           </div>
           <div class="portrait-stage" aria-label="Interactive 3D duck">
             <spline-viewer
@@ -40,8 +40,8 @@
             alt="Kolby Kolibas"
           />
           <div class="portrait-readout" aria-hidden="true">
-            <span>DUCK_RENDER</span>
-            <strong>LIVE</strong>
+            <span class="portrait-readout-label">HUMAN_RENDER</span>
+            <strong class="portrait-readout-state">LIVE</strong>
           </div>
         </div>
 
@@ -132,6 +132,6 @@
         </div>
       </section>
     </main>
-    <script src="script.js"></script>
+    <script src="script.js?v=duck-reveal-1"></script>
   </body>
 </html>

@@ -41,6 +41,9 @@ const saveContact = document.querySelector("#saveContact");
 const shareContact = document.querySelector("#shareContact");
 const contactCard = document.querySelector(".contact-card");
 const scanToggle = document.querySelector("#scanToggle");
+const portraitPanel = document.querySelector(".portrait-panel");
+const portraitStatus = document.querySelector(".portrait-status");
+const portraitReadoutLabel = document.querySelector(".portrait-readout-label");
 
 qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=320x320&margin=18&data=${encodeURIComponent(vcard)}`;
 qrCode.addEventListener("load", () => {
@@ -48,6 +51,16 @@ qrCode.addEventListener("load", () => {
 });
 
 bookTime.href = contact.bookingUrl || bookingRequestUrl;
+
+if (portraitPanel) {
+  portraitPanel.classList.add("is-primed");
+  window.setTimeout(() => {
+    portraitPanel.classList.remove("is-primed");
+    portraitPanel.classList.add("duck-revealed");
+    if (portraitStatus) portraitStatus.textContent = "LIVE_3D_NODE";
+    if (portraitReadoutLabel) portraitReadoutLabel.textContent = "DUCK_RENDER";
+  }, 3000);
+}
 
 saveContact.addEventListener("click", () => {
   const blob = new Blob([vcard], { type: "text/vcard;charset=utf-8" });

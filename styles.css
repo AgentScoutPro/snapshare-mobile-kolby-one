@@ -123,6 +123,18 @@ a {
     #090909;
 }
 
+.portrait-panel.is-primed {
+  cursor: wait;
+}
+
+.portrait-panel.duck-revealed {
+  cursor: grab;
+}
+
+.portrait-panel.duck-revealed:active {
+  cursor: grabbing;
+}
+
 .portrait-panel::before,
 .portrait-panel::after {
   content: "";
@@ -157,7 +169,19 @@ a {
   inset: 0;
   z-index: 1;
   overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(1.03);
   animation: portraitReveal 1100ms var(--ease-out) both;
+  transition:
+    opacity 520ms var(--ease-out),
+    transform 620ms var(--ease-out);
+}
+
+.portrait-panel.duck-revealed .portrait-stage {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
 }
 
 .portrait-scene {
@@ -174,20 +198,29 @@ a {
 .portrait-fallback {
   position: absolute;
   inset: 0;
-  z-index: 0;
+  z-index: 2;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0;
+  opacity: 1;
   transform: scale(1.02);
   filter: saturate(0.96) contrast(1.08);
   transition:
-    opacity 320ms ease,
+    opacity 520ms var(--ease-out),
     transform 700ms var(--ease-out),
-    filter 700ms var(--ease-out);
+    filter 700ms var(--ease-out),
+    clip-path 640ms var(--ease-out);
+  clip-path: inset(0 0 0 0);
 }
 
-.contact-card:hover .portrait-fallback {
+.portrait-panel.duck-revealed .portrait-fallback {
+  opacity: 0;
+  transform: scale(1.08);
+  clip-path: inset(0 0 100% 0);
+  pointer-events: none;
+}
+
+.contact-card:hover .portrait-panel:not(.duck-revealed) .portrait-fallback {
   filter: saturate(1.1) contrast(1.12);
   transform: scale(1.055);
 }
